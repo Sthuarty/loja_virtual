@@ -74,7 +74,20 @@ Agora ela retorna um AuthResult e dentro dele pegamos o usuário no .user*/
     notifyListeners();
   }
 
+  void signOut() async {
+    await _auth.signOut();
+
+    userData = Map();
+    firebaseUser = null;
+
+    notifyListeners();
+  }
+
   void recoverPassword() {}
+
+  bool isLoggedIn() {
+    return firebaseUser != null;
+  }
 
   Future<Null> _saveUserData(Map<String, dynamic> userData) async {
     this.userData = userData;

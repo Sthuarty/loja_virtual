@@ -81,12 +81,9 @@ class LoginScreen extends StatelessWidget {
                     textColor: Colors.white,
                     color: Theme.of(context).primaryColor,
                     onPressed: () {
-                      if (_formKey.currentState.validate()) {
-
-                      }
+                      if (_formKey.currentState.validate()) {}
 
                       model.signIn();
-
                     },
                   ),
                 )
