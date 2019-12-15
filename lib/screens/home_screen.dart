@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
             centerTitle: true,
           ),
           body: PlacesTab(),
-          bottomNavigationBar: CustomDrawer(_pageController),
+          drawer: CustomDrawer(_pageController),
         ),
         Scaffold(
           appBar: AppBar(title: Text("Meus pedidos"), centerTitle: true),
