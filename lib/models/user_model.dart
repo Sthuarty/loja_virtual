@@ -79,7 +79,9 @@ Agora ela retorna um AuthResult e dentro dele pegamos o usuário no .user*/
     isLoading = true;
     notifyListeners();
 
-    _auth.signInWithEmailAndPassword(email: email, password: pass).then((auth) async {
+    _auth
+        .signInWithEmailAndPassword(email: email, password: pass)
+        .then((auth) async {
       firebaseUser = auth.user;
 
       await _loadCurrentUser();
@@ -103,7 +105,9 @@ Agora ela retorna um AuthResult e dentro dele pegamos o usuário no .user*/
     notifyListeners();
   }
 
-  void recoverPassword() {}
+  void recoverPassword(String email) {
+    _auth.sendPasswordResetEmail(email: email);
+  }
 
   bool isLoggedIn() {
     return firebaseUser != null;

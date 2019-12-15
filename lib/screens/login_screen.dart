@@ -74,7 +74,24 @@ class _LoginScreenState extends State<LoginScreen> {
                 Align(
                   alignment: Alignment.centerRight,
                   child: FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      if (_emailController.text.isEmpty)
+                        _scaffoldKey.currentState.showSnackBar(SnackBar(
+                          content: Text("Insira seu email para recuperação"),
+                          backgroundColor: Colors.redAccent,
+                          duration: Duration(seconds: 2),
+                        ));
+                      else {
+                        model.recoverPassword(_emailController.text);
+
+                        _scaffoldKey.currentState.showSnackBar(SnackBar(
+                          content: Text(
+                              "Link para reuperação de senha enviado para seu email"),
+                          backgroundColor: Theme.of(context).primaryColor,
+                          duration: Duration(seconds: 2),
+                        ));
+                      }
+                    },
                     child: Text(
                       "Esqueci minha senha",
                       textAlign: TextAlign.right,
